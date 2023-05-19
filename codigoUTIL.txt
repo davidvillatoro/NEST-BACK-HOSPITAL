@@ -1,0 +1,25 @@
+enum userRole {
+    admin = 'admin',
+    user = 'user'
+}
+
+interface IUserSchema extends Document {
+    userType: userRole
+}
+
+const UserSchema: Schema = new Schema({
+    userType: {
+        type: String,
+        enum: Object.values(userRole),
+        default: userRole.user, 
+        required: true
+    }
+});
+
+
+///---------------------segundo forma ----sencilla
+@Prop({
+        type: String,
+        enum: ['si','no','talves'],
+    })
+    categoria: string;
